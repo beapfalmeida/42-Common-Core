@@ -6,7 +6,7 @@
 /*   By: bpaiva-f <bpaiva-f@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 11:02:13 by bpaiva-f          #+#    #+#             */
-/*   Updated: 2024/05/04 10:14:22 by bpaiva-f         ###   ########.fr       */
+/*   Updated: 2024/05/04 10:52:12 by bpaiva-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ static int	countnum(unsigned int n)
 	int	count;
 
 	count = 0;
+	if (n == 0)
+		count++;
 	while (n)
 	{
 		n = n / 10;
@@ -59,5 +61,6 @@ int	ft_putunsnbr(unsigned int nb)
 
 	str = ft_itoa(nb);
 	i = ft_putstr(str);
+	free(str);
 	return (i);
 }

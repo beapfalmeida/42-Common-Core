@@ -6,16 +6,19 @@
 /*   By: bpaiva-f <bpaiva-f@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 11:02:03 by bpaiva-f          #+#    #+#             */
-/*   Updated: 2024/05/02 11:02:04 by bpaiva-f         ###   ########.fr       */
+/*   Updated: 2024/05/04 10:55:32 by bpaiva-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
 static int	counthex(unsigned long n)
 {
 	int	count;
 
 	count = 0;
+	if (n == 0)
+		count++;
 	while (n)
 	{
 		n = n / 16;
@@ -23,6 +26,7 @@ static int	counthex(unsigned long n)
 	}
 	return (count);
 }
+
 int	ft_puthex(unsigned long n, char c)
 {
 	char *base_up;

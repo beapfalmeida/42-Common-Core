@@ -6,7 +6,7 @@
 /*   By: bpaiva-f <bpaiva-f@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 11:02:11 by bpaiva-f          #+#    #+#             */
-/*   Updated: 2024/05/02 11:02:12 by bpaiva-f         ###   ########.fr       */
+/*   Updated: 2024/05/04 10:26:45 by bpaiva-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ int	ft_putstr(char *str)
 	int	i;
 
 	i = 0;
+	if (!str)
+		return (write(1, "(null)", 6));
 	while (str[i])
 	{
 		write(1, &str[i], 1);

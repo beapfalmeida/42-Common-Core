@@ -6,7 +6,7 @@
 /*   By: bpaiva-f <bpaiva-f@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 11:01:46 by bpaiva-f          #+#    #+#             */
-/*   Updated: 2024/05/02 11:40:34 by bpaiva-f         ###   ########.fr       */
+/*   Updated: 2024/05/04 10:41:21 by bpaiva-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	print_variable(va_list args, char c)
 	else if (c == 'i' || c == 'd')
 		return(ft_putnbr(va_arg(args, int)));
 	else if (c == 'u')
-		return(ft_putnbr(va_arg(args, unsigned int)));
+		return(ft_putunsnbr(va_arg(args, unsigned int)));
 	else if (c == 'x' || c == 'X')
 		return(ft_puthex(va_arg(args, unsigned int), c));
 	else if (c == '%')
