@@ -6,7 +6,7 @@
 /*   By: bpaiva-f <bpaiva-f@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 16:00:19 by bpaiva-f          #+#    #+#             */
-/*   Updated: 2024/04/26 15:20:28 by bpaiva-f         ###   ########.fr       */
+/*   Updated: 2024/05/04 10:12:12 by bpaiva-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,6 @@ static int	countnum(int n)
 	return (count);
 }
 
-static char	*free_data_zero(char *str)
-{
-	free(str);
-	return (ft_strdup("0"));
-}
-
 char	*ft_itoa(int n)
 {
 	int		len;
@@ -46,7 +40,7 @@ char	*ft_itoa(int n)
 	if (!str)
 		return (NULL);
 	if (num == 0)
-		return (free_data_zero(str));
+		str[0] = '0';
 	str[len] = '\0';
 	if (num < 0)
 	{

@@ -6,7 +6,7 @@
 /*   By: bpaiva-f <bpaiva-f@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 11:02:13 by bpaiva-f          #+#    #+#             */
-/*   Updated: 2024/05/02 11:46:36 by bpaiva-f         ###   ########.fr       */
+/*   Updated: 2024/05/04 10:14:22 by bpaiva-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static char	*ft_itoa(unsigned int n)
 	char	*str;
 	unsigned long	num;
 
-	num = n;
+	num = (unsigned long) n;
 	len = countnum(num);
 	str = malloc((len + 1) * sizeof(char));
 	if (!str)
