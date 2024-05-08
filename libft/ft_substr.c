@@ -6,7 +6,7 @@
 /*   By: bpaiva-f <bpaiva-f@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 11:47:19 by bpaiva-f          #+#    #+#             */
-/*   Updated: 2024/04/25 10:23:21 by bpaiva-f         ###   ########.fr       */
+/*   Updated: 2024/05/04 11:27:19 by bpaiva-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,3 @@ char	*ft_substr(char const *str, unsigned int st, size_t n)
 	ft_strlcpy(sub, pst, len);
 	return (sub);
 }
-// int main()
-// {
-// 	char * str = "lorem ipsum dolor sit amet";
-// 	printf("%s", ft_substr(str, 0, 10));
-// }

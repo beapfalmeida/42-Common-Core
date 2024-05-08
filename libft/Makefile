@@ -16,17 +16,17 @@ BONUS_OBJ = $(BONUS_SRC:.c=.o)
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	ar rc $(NAME) $(OBJ)
+	ar rcs $(NAME) $(OBJ)
 
 clean:
-	$(RM) $(OBJ)
+	$(RM) $(OBJ) $(BONUS_OBJ)
 	
 fclean: clean
 	$(RM) $(NAME)
 	
 re: fclean all
 
-bonus: $(OBJ) $(BONUS_OBJ)
-	ar rc $(NAME) $(OBJ) $(BONUS_OBJ)
+bonus: $(OBJ) $(BONUS_OBJ) 
+	ar rcs $(NAME) $(OBJ) $(BONUS_OBJ)
 
 .PHONY: all clean fclean re

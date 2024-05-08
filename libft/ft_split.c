@@ -6,7 +6,7 @@
 /*   By: bpaiva-f <bpaiva-f@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 15:54:39 by bpaiva-f          #+#    #+#             */
-/*   Updated: 2024/04/25 10:26:22 by bpaiva-f         ###   ########.fr       */
+/*   Updated: 2024/05/04 11:26:31 by bpaiva-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,18 +97,3 @@ char	**ft_split(char *s, char c)
 	arr = save_words(arr, s, c);
 	return (arr);
 }
-
-/* int main(void)
-{
-	char str[] = "    oloooll";
-	char **arr;
-	int i = 0;
-
-	arr = ft_split(str, ' ');
-	while (arr[i])
-	{
-		printf("%s", arr[i]);
-		i++;
-	}
-}
- */

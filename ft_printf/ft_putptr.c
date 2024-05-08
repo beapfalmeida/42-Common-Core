@@ -6,7 +6,7 @@
 /*   By: bpaiva-f <bpaiva-f@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 11:02:09 by bpaiva-f          #+#    #+#             */
-/*   Updated: 2024/05/02 11:02:10 by bpaiva-f         ###   ########.fr       */
+/*   Updated: 2024/05/08 16:33:57 by bpaiva-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static int	counthex(unsigned long n)
 
 static int	ft_putptrhex(unsigned long n)
 {
-	char *base;
+	char	*base;
 
 	base = "0123456789abcdef";
 	if (n >= 16)

@@ -6,7 +6,7 @@
 /*   By: bpaiva-f <bpaiva-f@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 11:02:13 by bpaiva-f          #+#    #+#             */
-/*   Updated: 2024/05/04 10:52:12 by bpaiva-f         ###   ########.fr       */
+/*   Updated: 2024/05/08 16:34:47 by bpaiva-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ static int	countnum(unsigned int n)
 
 static char	*ft_itoa(unsigned int n)
 {
-	int		len;
-	char	*str;
+	int				len;
+	char			*str;
 	unsigned long	num;
 
 	num = (unsigned long) n;
@@ -56,8 +56,8 @@ static char	*ft_itoa(unsigned int n)
 
 int	ft_putunsnbr(unsigned int nb)
 {
-	char *str;
-	int	i;
+	char	*str;
+	int		i;
 
 	str = ft_itoa(nb);
 	i = ft_putstr(str);

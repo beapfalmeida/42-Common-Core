@@ -6,7 +6,7 @@
 /*   By: bpaiva-f <bpaiva-f@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 15:06:18 by bpaiva-f          #+#    #+#             */
-/*   Updated: 2024/04/25 10:31:49 by bpaiva-f         ###   ########.fr       */
+/*   Updated: 2024/05/04 11:31:00 by bpaiva-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,12 +44,3 @@ char	*ft_strtrim(char const *s, char const *set)
 	trim = ft_substr(s, st, e - st + 1);
 	return (trim);
 }
-
-// int main(void)
-// {
-// 	printf("%s\n", ft_strtrim("lorem \n ipsum \t dolor \n sit \t amet", " "));
-// 	printf("%s\n", ft_strtrim("lorem ipsum dolor sit amet", "te"));
-// 	printf("%s\n", ft_strtrim("lorem ipsum dolor sit amet", ""));
-// 	printf("%s\n", ft_strtrim("lorem ipsum dolor sit amet", "tel"));
-// 	printf("%s\n", ft_strtrim("     ", " "));
-// }

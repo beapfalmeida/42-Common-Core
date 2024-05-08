@@ -6,7 +6,7 @@
 /*   By: bpaiva-f <bpaiva-f@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 11:50:45 by bpaiva-f          #+#    #+#             */
-/*   Updated: 2024/04/23 11:56:06 by bpaiva-f         ###   ########.fr       */
+/*   Updated: 2024/05/04 11:31:54 by bpaiva-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,3 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	new[i] = '\0';
 	return (new);
 }
-
-/*int main(void)
-{
-	char	s1[] = "\0orem ipsum";
-	char	s2[] = "\0olor sit amet";
-	
-	printf("%s", ft_strjoin(s1, s2));
-}*/

@@ -3,24 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bpaiva-f <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: bpaiva-f <bpaiva-f@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 22:02:57 by bpaiva-f          #+#    #+#             */
-/*   Updated: 2024/04/15 22:02:59 by bpaiva-f         ###   ########.fr       */
+/*   Updated: 2024/05/04 11:30:29 by bpaiva-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdio.h>
-/*size_t	ft_strlen(const char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}*/
 
 char	*ft_strdup(char *src)
 {
@@ -41,11 +32,3 @@ char	*ft_strdup(char *src)
 	new[i] = '\0';
 	return (new);
 }
-
-/*int main(void)
-{
-	char	str[] = "lorem ipsum dolor sit amet";
-
-	printf("%s", ft_strdup(str));
-	return (0);
-}*/

@@ -6,7 +6,7 @@
 /*   By: bpaiva-f <bpaiva-f@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 11:28:14 by bpaiva-f          #+#    #+#             */
-/*   Updated: 2024/05/02 11:46:11 by bpaiva-f         ###   ########.fr       */
+/*   Updated: 2024/05/08 16:33:33 by bpaiva-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,9 +56,9 @@ static char	*ft_itoa(int n)
 
 int	ft_putnbr(int nb)
 {
-	char *str;
-	int	i;
-	
+	char	*str;
+	int		i;
+
 	str = ft_itoa(nb);
 	i = ft_putstr(str);
 	free(str);

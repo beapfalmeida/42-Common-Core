@@ -19,7 +19,7 @@
 # include <stdlib.h>
 # include <stddef.h>
 
-int		ft_printf(const char *, ...);
+int		ft_printf(const char *s, ...);
 int		ft_putstr(char *str);
 int		ft_putnbr(int nb);
 int		ft_putchar(char c);

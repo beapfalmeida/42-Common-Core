@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bpaiva-f <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: bpaiva-f <bpaiva-f@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 21:53:43 by bpaiva-f          #+#    #+#             */
-/*   Updated: 2024/04/15 21:53:47 by bpaiva-f         ###   ########.fr       */
+/*   Updated: 2024/05/04 11:25:52 by bpaiva-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,3 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	}
 	return (NULL);
 }
-
-/*int main(void)
-{
-	int tab[7] = {-49, 49, 1, -1, 0, -2, 2};
-	printf("ORIGINAL: %s\n", (char *)memchr(tab, -1, 7));
-	printf("MINHA: %s", (char *)ft_memchr(tab, -1, 7));
-}*/

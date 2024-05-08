@@ -6,7 +6,7 @@
 /*   By: bpaiva-f <bpaiva-f@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 22:04:49 by bpaiva-f          #+#    #+#             */
-/*   Updated: 2024/04/25 10:29:38 by bpaiva-f         ###   ########.fr       */
+/*   Updated: 2024/05/04 11:30:05 by bpaiva-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,3 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	}
 	return (NULL);
 }
-
-// int main(void)
-// {
-// 	printf("%s\n", ft_strnstr("aaabcabcd", "aabc", -1));
-// }

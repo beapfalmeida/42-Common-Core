@@ -6,7 +6,7 @@
 /*   By: bpaiva-f <bpaiva-f@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 21:57:36 by bpaiva-f          #+#    #+#             */
-/*   Updated: 2024/04/23 11:54:16 by bpaiva-f         ###   ########.fr       */
+/*   Updated: 2024/05/04 11:30:47 by bpaiva-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,3 @@ void	*ft_memset(void	*s, int c, size_t n)
 	}
 	return (s);
 }
-
-/*int main(void)
-{
-	int n = 10; 
-	char arr[n];
-	
-	ft_memset(arr, 10, n*sizeof(arr[0]));
-	for (int i=0; i<n; i++)
-		printf("%d ", arr[i]);
-}*/

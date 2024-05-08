@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bpaiva-f <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: bpaiva-f <bpaiva-f@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 21:44:59 by bpaiva-f          #+#    #+#             */
-/*   Updated: 2024/04/15 21:45:04 by bpaiva-f         ###   ########.fr       */
+/*   Updated: 2024/05/04 11:25:28 by bpaiva-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,13 +40,3 @@ int	ft_atoi(const char *str)
 	}
 	return (result * sign);
 }
-
-/*int main(void)
-{
-    char str1[] = "   ---+--+1234ab567";
-    char str2[] = "     -1098ahb";
-    printf("Str1: %s, Result: %i\n", str1, ft_atoi(str1));
-    printf("Original. Str1: %s, Result: %i\n", str1, atoi(str1));
-    printf("Str2: %s, Result: %i\n", str2, ft_atoi(str2));
-    printf("Str2: %s, Result: %i\n", str2, atoi(str2));
-}*/
