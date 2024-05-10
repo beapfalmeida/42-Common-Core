@@ -3,19 +3,22 @@
 char	*readlines(int fd, char *stash)
 {
 	char	*buffer;
-	int	i;
+	int	bytes;
 
-	buffer = malloc((BUFFER_SIZE + 1) * sizeof(char));
+	buffer = (char *)malloc((BUFFER_SIZE + 1) * sizeof(char));
 	if (!buffer)
 		return (0);
-	i = 1;
-	while (i > 0)
+	bytes = read(fd, buffer, BUFFER_SIZE);
+	buffer[bytes] = '\0';
+	while (bytes > 0)
 	{
-		i = read(fd, buffer, BUFFER_SIZE);
 		stash = ft_strjoin(stash, buffer);
-		if (ft_strchr(buffer, '\n'))
+		if (ft_strchr(buffer, '\n') )
 			break ;
+		bytes = read(fd, buffer, BUFFER_SIZE);
+		buffer[bytes] = '\0';
 	}
+	free(buffer);
 	return (stash);
 }
 
@@ -31,9 +34,14 @@ char	*get_next_line(int fd)
 	stash = readlines(fd, stash);
 	len_line = ft_strclen(stash, '\n');
 	line = ft_strdup(stash, len_line + 1);
-	size = ft_strclen(stash + len_line + 1, '\0') - len_line;
-	free(stash);
+	if (!line)
+		free(line);
+	size = ft_strclen(stash + len_line + 1, '\0');
+	if(!ft_strclen(stash, '\0'))
+		return (NULL);
 	stash = ft_strdup(stash + len_line + 1, size);
+	if (!stash)
+		free(stash);
 	return (line);
 }
 
@@ -49,11 +57,10 @@ int     main(void)
         return (1);
     }
     line = get_next_line(fd);
-    while (i--)
+    while (line != NULL)
     {
         printf("%s", line);
         line = get_next_line(fd);
-		free(line);
     }
     close(fd);
     return (0);

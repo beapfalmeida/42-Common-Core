@@ -19,13 +19,14 @@ char	*ft_strdup(char *src, int size)
 	i = 0;
 	new = (char *)malloc(sizeof(char) * (size + 1));
 	if (!new)
-		return (0);
-	while (src && src[i])
+		return (0);	
+	while (i < size)
 	{
 		new[i] = src[i];
 		i++;
 	}
 	new[i] = '\0';
+	free(src);
 	return (new);
 }
 
