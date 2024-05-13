@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_next_line_utils.c                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: bpaiva-f <bpaiva-f@student.42porto.com>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/05/13 18:32:41 by bpaiva-f          #+#    #+#             */
+/*   Updated: 2024/05/13 18:35:52 by bpaiva-f         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "get_next_line.h"
 
 int	ft_strclen(char *str, char c)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (!str)
@@ -11,26 +23,28 @@ int	ft_strclen(char *str, char c)
 		i++;
 	return (i);
 }
+
 char	*ft_strdup(char *src, int size)
 {
 	char	*new;
 	int		i;
 
 	i = 0;
+	if (!src)
+		return (NULL);
 	new = (char *)malloc(sizeof(char) * (size + 1));
 	if (!new)
-		return (0);	
+		return (0);
 	while (i < size)
 	{
 		new[i] = src[i];
 		i++;
 	}
 	new[i] = '\0';
-	free(src);
 	return (new);
 }
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*ft_strjoin(char *s1, char *s2)
 {
 	char	*new;
 	size_t	tlen;
@@ -39,7 +53,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 
 	i = 0;
 	j = 0;
-	tlen = ft_strclen((char *)s1, '\0') + ft_strclen((char *)s2, '\0');
+	tlen = ft_strclen(s1, '\0') + ft_strclen(s2, '\0');
 	new = malloc((tlen + 1) * sizeof(char));
 	if (!new)
 		return (0);
@@ -55,6 +69,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		j++;
 	}
 	new[i] = '\0';
+	free(s1);
 	return (new);
 }
 
