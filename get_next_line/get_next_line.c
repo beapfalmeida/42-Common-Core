@@ -6,7 +6,7 @@
 /*   By: bpaiva-f <bpaiva-f@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 18:33:00 by bpaiva-f          #+#    #+#             */
-/*   Updated: 2024/05/13 18:33:43 by bpaiva-f         ###   ########.fr       */
+/*   Updated: 2024/05/14 09:56:28 by bpaiva-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ char	*readlines(int fd, char *stash)
 	if (!buffer)
 		return (0);
 	*buffer = 0;
-	bytes = BUFFER_SIZE;
+	bytes = 1;
 	while (bytes > 0 && !ft_strchr(buffer, '\n'))
 	{
 		bytes = read(fd, buffer, BUFFER_SIZE);
@@ -70,25 +70,3 @@ char	*get_next_line(int fd)
 		free(stash);
 	return (line);
 }
-
-// int     main(void)
-// {
-//     int     fd;
-//     char    *line;
-// 	int i = 2;
-//     fd = open("example.txt", O_RDONLY);
-//     if (fd == -1)
-//     {
-//         printf("open error");
-//         return (1);
-//     }
-//     line = get_next_line(fd);
-//     while (line != NULL)
-//     {
-//         printf("%s", line);
-// 		free(line);
-//         line = get_next_line(fd);
-//     }
-//     close(fd);
-//     return (0);
-// }
