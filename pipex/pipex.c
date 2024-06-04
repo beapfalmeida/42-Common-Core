@@ -1,75 +1,94 @@
 #include "pipex.h"
 
-int	main(int argc, char **argv)
-{
-	int	id1;
-	int id2;
-	int fd[2];
+// char	**process_cmd(char *file, char *cmd)
+// {
+// 	// char	*temp1;
+// 	char	**args;
 
-	//fd[0] read 
-	// fd[1] write
+// 	// temp1 = ft_strjoin(cmd, " ");
+// 	// temp1 = ft_strjoin(temp1, file);
+// 	;
+// 	return (args);
+// }
+char	*process_path(char *arg)
+{
 	char *init_path;
-	char	*path1;
-	char	*path2;
-	char	**args1;
-	char	**args2;
-	int i;
+	char	*path;
+
+	init_path = "/usr/bin/";
+	path = ft_strjoin(init_path, arg);
+	return (path);
+}
+
+void	execute_function(int *fd, char **envp, char *file, char *cmd, int first)
+{
+	int pid;
+	char	*path = {NULL};
+	char	**args = {NULL};
+	char id;
+	if (first)
+		id = open(file, O_RDONLY);
+	else
+		id = open(file, O_WRONLY);
+	if (id == -1)
+				perror("open");
+	pid = fork();
+	if (pid == -1)
+		perror("open");
+	if (pid ==0)
+	{
+		if (first)
+		{
+			close(fd[0]);
+			// id = open(file, O_RDONLY);
+			// if (id == -1)
+			// 	perror("open");
+			dup2(id, STDIN_FILENO);
+			dup2(fd[1], STDOUT_FILENO);
+			args = ft_split(cmd, ' ');
+			path = process_path(args[0]);
+		}
+		else
+		{
+			close (fd[1]);
+			// id = open(file, O_WRONLY);
+			dup2(fd[0], STDIN_FILENO);
+			dup2(id, STDOUT_FILENO);
+			args = ft_split(cmd, ' ');
+			path = process_path(args[0]);
+		}
+		if (execve(path, args, envp) == -1)
+		{
+				perror("execv");
+			exit(EXIT_FAILURE);
+		}
+	}
+	//close(fd[0]);
+	//close (fd[1]);
+	close(id);
+}
+
+int	main(int argc, char **argv, char **envp)
+{
+	//int	id1;
+	//int id2;
+	int fd[2];
+	char	*file;
+	char	*cmd;
 
 	if (argc != 5)
-	{
         printf("Usage: %s <shell_path1> <command1> <command2> <shell_path2>\n", argv[0]);
-        return 1;
-    }
-	init_path ="/usr/bin/";
-	args1 = ft_split(argv[2], ' ');
-	args2 = ft_split(argv[3], ' ');
-	path1 = ft_strjoin(init_path, args1[0]);
-	path2 = ft_strjoin(init_path, args2[0]);
-	if (!path1 || !path2) 
-	{
-        printf("Error: Failed to join paths\n");
-        return 1;
-	}
 	if (pipe(fd) == -1)
-	{
 		perror("pipe");
-    }
-	id1 = fork();
-	if (id1 == 0)
-		printf("hello\n");
-
-	if (id1 == 0)
-	{
-		//dup2(fd[1], STDOUT_FILENO);
-		close(fd[0]);
-		close (fd[1]);
-		printf("hi");
-		return (1);
-		// if (execv(path1, args1) == -1)
-		// {
-		// 	perror("execv");
-		// 	return (1);
-		// }
-	}
-	waitpid(id1, NULL , 0);
-	id2 = fork();
-	if (id2 == 0)
-	{
-		dup2(fd[0], STDIN_FILENO);
-		close(fd[0]);
-		close (fd[1]);
-		// if (execv(path2, args2) == -1)
-		// {
-		// 	perror("execv");
-		// 	return (1);
-		// }
-	}
-	waitpid(id2, NULL, 0);
+	// id1 = fork();
+	// if (id1 == 0)
+		execute_function(fd, envp, argv[1], argv[2], 1);
+	//waitpid(id1, NULL, 0);
+	// id2 = fork();
+	// if (id2 == 0)
+		execute_function(fd, envp, argv[4], argv[3], 0);
+	waitpid(0, NULL, 0);
 	close(fd[0]);
 	close (fd[1]);
-	free(path1);
-    free(path2);
-    free(args1);
-    free(args2);
 	return (0);
 }
