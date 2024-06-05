@@ -1,14 +1,1 @@
-0
-
-al 56
--rwxr-xr-x 1 bpaiva-f 2023_porto 16904 Jun  4 21:50 a.out
-drwxr-xr-x 2 bpaiva-f 2023_porto  4096 May 31 14:34 ft_printf
--rw-r--r-- 1 bpaiva-f 2023_porto  2024 Jun  3 15:59 ft_split.c
--rw-r--r-- 1 bpaiva-f 2023_porto  1281 May 31 17:15 ft_strjoin.c
--rw-r--r-- 1 bpaiva-f 2023_porto  1003 May 31 17:14 ft_strlen.c
-drwxr-xr-x 2 bpaiva-f 2023_porto  4096 May 31 14:34 libft
--rw-r--r-- 1 bpaiva-f 2023_porto     0 May 30 12:19 Makefile
--rw-r--r-- 1 bpaiva-f 2023_porto  1487 Jun  4 15:14 pipex.c
--rw-r--r-- 1 bpaiva-f 2023_porto   363 Jun  3 16:50 pipex.h
--rwxrwxrwx 1 bpaiva-f 2023_porto    17 Jun  3 17:08 test1.txt
--rwxrwxrwx 1 bpaiva-f 2023_porto    12 Jun  4 15:05 test2.txt
+1

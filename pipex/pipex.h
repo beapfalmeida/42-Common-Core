@@ -9,6 +9,7 @@
 # include <sys/types.h>
 # include <sys/wait.h>
 # include <fcntl.h>
+# include <string.h>
 
 size_t	ft_strlen(const char *str);
 char	**ft_split(char *s, char c);
