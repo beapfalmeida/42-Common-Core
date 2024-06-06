@@ -41,11 +41,6 @@ static char	*ft_itoa(unsigned int n)
 	if (num == 0)
 		str[0] = '0';
 	str[len] = '\0';
-	if (num < 0)
-	{
-		str[0] = '-';
-		num *= -1;
-	}
 	while (num != 0 && len--)
 	{
 		str[len] = (num % 10) + 48;

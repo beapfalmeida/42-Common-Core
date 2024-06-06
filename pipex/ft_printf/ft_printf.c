@@ -14,9 +14,6 @@
 
 int	print_variable(va_list args, char c)
 {
-	int	i;
-
-	i = 0;
 	if (c == 'c')
 		return (ft_putchar(va_arg(args, int)));
 	if (c == 's')

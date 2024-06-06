@@ -1,6 +1,6 @@
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
-NAME = libftprintf.a
+NAME = ft_printf.a
 SRC = ft_printf.c ft_putchar.c ft_puthex.c ft_putnbr.c ft_putstr.c ft_strlen.c ft_putptr.c ft_putunsnbr.c
 OBJ = $(SRC:.c=.o)
 

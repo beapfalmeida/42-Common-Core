@@ -10,10 +10,15 @@
 # include <sys/wait.h>
 # include <fcntl.h>
 # include <string.h>
+# include "libft/libft.h"
+# include "ft_printf/ft_printf.h"
 
-size_t	ft_strlen(const char *str);
-char	**ft_split(char *s, char c);
-char	*ft_strjoin(char const *s1, char const *s2);
-int	countwords(char *s, char c);
+char	*process_path(char *cmd, char **envp);
+char	*get_cmd(char **paths, char *cmd);
+void	handle_errors(int c, char *strerr);
+void	badpath(char *path, char *cmd);
+void	free_data(char **arr);
+void	first_child(int *fd, char **envp, char *file, char *cmd);
+void	second_child(int *fd, char **envp, char *file, char *cmd);
 
 #endif
