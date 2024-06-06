@@ -1,6 +1,18 @@
-# include "pipex.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   handle_errors.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: bpaiva-f <bpaiva-f@student.42porto.com>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/06/06 13:14:11 by bpaiva-f          #+#    #+#             */
+/*   Updated: 2024/06/06 15:20:34 by bpaiva-f         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-void handle_errors(int c, char *strerr)
+#include "pipex.h"
+
+void	handle_errors(int c, char *strerr)
 {
 	if (c == -1)
 		perror(strerr);
@@ -10,18 +22,26 @@ void	badpath(char *path, char *cmd)
 {
 	if (!path)
 	{
-		ft_printf("Command %s not found", cmd);
+		ft_printf("zsh: command not found: %s\n", cmd);
 		exit(1);
 	}
 }
-void	free_data(char **arr)
+
+void	free_array(char **arr)
 {
 	int	i;
 
+	i = 0;
 	while (arr[i] != NULL)
 	{
 		free(arr[i]);
 		i++;
 	}
 	free(arr);
+}
+
+void	free_data(char *path, char **args)
+{
+	free(path);
+	free_array(args);
 }

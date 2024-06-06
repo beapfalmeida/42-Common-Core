@@ -1,19 +1,36 @@
-# include "pipex.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   children.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: bpaiva-f <bpaiva-f@student.42porto.com>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/06/06 13:14:14 by bpaiva-f          #+#    #+#             */
+/*   Updated: 2024/06/06 15:40:30 by bpaiva-f         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "pipex.h"
+
+void	intermediate_funct( char **path, char ***args, char *cmd, char **envp)
+{
+	*args = ft_split(cmd, ' ');
+	*path = process_path(**args, envp);
+	badpath(*path, cmd);
+}
 
 void	first_child(int *fd, char **envp, char *file, char *cmd)
 {
 	int		pid;
-	char	*path = {NULL};
-	char	**args = {NULL};
+	char	*path;
+	char	**args;
 	int		input_fd;
 
-	args = ft_split(cmd, ' ');
-	path = process_path(args[0], envp);
-	badpath(path, cmd);
-	input_fd = open(file, O_RDONLY);
-	handle_errors(input_fd, strerror(errno));
+	intermediate_funct(&path, &args, cmd, envp);
 	pid = fork();
 	handle_errors(pid, strerror(errno));
+	input_fd = open(file, O_RDONLY);
+	handle_errors(input_fd, strerror(errno));
 	if (pid == 0)
 	{
 		close(fd[0]);
@@ -22,26 +39,26 @@ void	first_child(int *fd, char **envp, char *file, char *cmd)
 		if (execve(path, args, envp) == -1)
 		{
 			perror(strerror(errno));
-			exit(EXIT_FAILURE);
+			free_data(path, args);
+			exit(1);
 		}
 	}
 	close(input_fd);
+	free_data(path, args);
 }
 
 void	second_child(int *fd, char **envp, char *file, char *cmd)
 {
 	int		pid;
-	char	*path = {NULL};
-	char	**args = {NULL};
+	char	*path;
+	char	**args;
 	int		input_fd;
 
-	args = ft_split(cmd, ' ');
-	path = process_path(args[0], envp);
-	badpath(path, cmd);
-	input_fd = open(file, O_WRONLY | O_CREAT | O_TRUNC, 0644);
-	handle_errors(input_fd, strerror(errno));
+	intermediate_funct(&path, &args, cmd, envp);
 	pid = fork();
 	handle_errors(pid, strerror(errno));
+	input_fd = open(file, O_WRONLY | O_CREAT | O_TRUNC, 0644);
+	handle_errors(input_fd, strerror(errno));
 	if (pid == 0)
 	{
 		close(fd[1]);
@@ -50,8 +67,10 @@ void	second_child(int *fd, char **envp, char *file, char *cmd)
 		if (execve(path, args, envp) == -1)
 		{
 			perror(strerror(errno));
-			exit(EXIT_FAILURE);
+			free_data(path, args);
+			exit(1);
 		}
 	}
 	close(input_fd);
+	free_data(path, args);
 }

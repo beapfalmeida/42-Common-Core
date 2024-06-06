@@ -1,46 +1,26 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   pipex.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: bpaiva-f <bpaiva-f@student.42porto.com>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/06/06 13:14:07 by bpaiva-f          #+#    #+#             */
+/*   Updated: 2024/06/06 15:37:10 by bpaiva-f         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "pipex.h"
-
-char	*get_cmd(char **paths, char *cmd)
-{
-	char	*temp;
-	char	*command;
-
-	while (*paths)
-	{
-		temp = ft_strjoin(*paths, "/");
-		command = ft_strjoin(temp, cmd);
-		free(temp);
-		free_data(paths);
-		if (access(command, 0) == 0)
-			return (command);
-		paths++;
-	}
-	return (NULL);
-}
-char	*process_path(char *cmd, char **envp)
-{
-	char	**paths;
-	int		i;
-
-	i = 0;
-	while (envp[i] != NULL)
-	{
-		if (ft_strncmp(envp[i],"PATH", 4) == 0)
-		{
-			paths = ft_split(envp[i] + 5, ':');
-			return (get_cmd(paths, cmd));
-		}
-		i++;
-    }
-	return (NULL);
-}
 
 int	main(int argc, char **argv, char **envp)
 {
 	int		fd[2];
 
 	if (argc != 5)
-        ft_printf("Usage: %s <shell_path1> <command1> <command2> <shell_path2>\n", argv[0]);
+	{
+		ft_printf("Usage: %s <file1> <cmd1> <cmd2> <file2>\n", argv[0]);
+		return (1);
+	}
 	if (pipe(fd) == -1)
 		perror(strerror(errno));
 	first_child(fd, envp, argv[1], argv[2]);

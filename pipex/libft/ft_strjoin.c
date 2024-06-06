@@ -6,12 +6,13 @@
 /*   By: bpaiva-f <bpaiva-f@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 11:50:45 by bpaiva-f          #+#    #+#             */
-/*   Updated: 2024/05/04 11:31:54 by bpaiva-f         ###   ########.fr       */
+/*   Updated: 2024/06/06 14:56:27 by bpaiva-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdio.h>
+#include <stdlib.h>
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
