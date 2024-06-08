@@ -6,7 +6,7 @@
 /*   By: bpaiva-f <bpaiva-f@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 15:17:51 by bpaiva-f          #+#    #+#             */
-/*   Updated: 2024/06/06 15:22:58 by bpaiva-f         ###   ########.fr       */
+/*   Updated: 2024/06/08 10:51:06 by bpaiva-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,21 +30,21 @@ char	*get_cmd(char **paths, char *cmd)
 	return (NULL);
 }
 
-char	*process_path(char *cmd, char **envp)
+char	*process_path( char **path, char ***args, char *cmd, char **envp)
 {
 	char	**paths;
-	char	*path;
 	int		i;
 
 	i = 0;
+	*args = ft_split(cmd, ' ');
 	while (envp[i] != NULL)
 	{
 		if (ft_strncmp(envp[i], "PATH", 4) == 0)
 		{
 			paths = ft_split(envp[i] + 5, ':');
-			path = get_cmd(paths, cmd);
+			*path = get_cmd(paths, cmd);
 			free_array(paths);
-			return (path);
+			return (*path);
 		}
 		i++;
 	}

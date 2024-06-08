@@ -6,7 +6,7 @@
 /*   By: bpaiva-f <bpaiva-f@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 13:14:07 by bpaiva-f          #+#    #+#             */
-/*   Updated: 2024/06/06 15:37:10 by bpaiva-f         ###   ########.fr       */
+/*   Updated: 2024/06/08 11:34:56 by bpaiva-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,9 @@
 
 int	main(int argc, char **argv, char **envp)
 {
-	int		fd[2];
+	int	fd[2];
+	int	status = 0;
+	int	pid;
 
 	if (argc != 5)
 	{
@@ -23,9 +25,17 @@ int	main(int argc, char **argv, char **envp)
 	}
 	if (pipe(fd) == -1)
 		perror(strerror(errno));
-	first_child(fd, envp, argv[1], argv[2]);
-	second_child(fd, envp, argv[4], argv[3]);
-	waitpid(0, NULL, 0);
+	pid = fork();
+	badfork(pid, strerror(errno));
+	if (pid == 0)
+		first_child(fd, envp, argv[1], argv[2]);
+	if (WEXITSTATUS(status) && pid != 0)
+ 	{
+		
+		second_child(fd, envp, argv[4], argv[3]);
+		//waitpid(0, NULL, 0);
+	}
+	waitpid(0, &status, 0);
 	close(fd[0]);
 	close (fd[1]);
 	return (0);

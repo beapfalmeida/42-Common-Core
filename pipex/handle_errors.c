@@ -6,16 +6,19 @@
 /*   By: bpaiva-f <bpaiva-f@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 13:14:11 by bpaiva-f          #+#    #+#             */
-/*   Updated: 2024/06/06 15:20:34 by bpaiva-f         ###   ########.fr       */
+/*   Updated: 2024/06/08 11:20:50 by bpaiva-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-void	handle_errors(int c, char *strerr)
+void	badfork(int pid, char *strerr)
 {
-	if (c == -1)
+	if (pid == -1)
+	{
 		perror(strerr);
+		exit(1);
+	}
 }
 
 void	badpath(char *path, char *cmd)
