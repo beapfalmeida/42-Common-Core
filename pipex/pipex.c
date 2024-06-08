@@ -29,13 +29,9 @@ int	main(int argc, char **argv, char **envp)
 	badfork(pid, strerror(errno));
 	if (pid == 0)
 		first_child(fd, envp, argv[1], argv[2]);
-	if (WEXITSTATUS(status) && pid != 0)
- 	{
-		
+	waitpid(pid, &status, 0);
+	if (WIFEXITED(status) && WEXITSTATUS(status) == 0 && pid != 0)
 		second_child(fd, envp, argv[4], argv[3]);
-		//waitpid(0, NULL, 0);
-	}
-	waitpid(0, &status, 0);
 	close(fd[0]);
 	close (fd[1]);
 	return (0);

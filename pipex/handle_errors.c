@@ -29,6 +29,14 @@ void	badpath(char *path, char *cmd)
 		exit(1);
 	}
 }
+void	badopen(int input_fd, char *file)
+{
+	if (input_fd == -1)
+	{
+		ft_printf("zsh: no such file or directory: %s\n", file);
+		exit(1);
+	}
+}
 
 void	free_array(char **arr)
 {

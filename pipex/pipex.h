@@ -29,11 +29,11 @@ char	*process_path( char **path, char ***args, char *cmd, char **envp);
 char	*get_cmd(char **paths, char *cmd);
 void	badfork(int pid, char *strerr);
 void	badpath(char *path, char *cmd);
+void	badopen(int input_fd, char *file);
 void	free_array(char **arr);
 void	free_data(char *path, char **args);
+void	execute_first(char *path, char	**args, char **envp);
 void	first_child(int *fd, char **envp, char *file, char *cmd);
 void	second_child(int *fd, char **envp, char *file, char *cmd);
-void	open_infile(int input_fd, char	*file);
-void	close_and_dup(int *fd, int input_fd);
 
 #endif

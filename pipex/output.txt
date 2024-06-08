@@ -1,0 +1,17 @@
+total 84$
+-rw-r--r-- 1 beapfalmeida   531 Jun  8 19:35 Makefile$
+-rw-r--r-- 1 beapfalmeida  2021 Jun  8 20:41 children.c$
+-rw-r--r-- 1 beapfalmeida  3464 Jun  8 20:41 children.o$
+drwxr-xr-x 2 beapfalmeida  4096 Jun  8 19:37 ft_printf$
+-rw-r--r-- 1 beapfalmeida  1544 Jun  8 20:26 get_commands.c$
+-rw-r--r-- 1 beapfalmeida  2376 Jun  8 20:26 get_commands.o$
+-rw-r--r-- 1 beapfalmeida  1455 Jun  8 20:37 handle_errors.c$
+-rw-r--r-- 1 beapfalmeida  2560 Jun  8 20:39 handle_errors.o$
+drwxr-xr-x 2 beapfalmeida  4096 Jun  8 19:37 libft$
+-rw-r--r-- 1 beapfalmeida   916 Jun  8 20:45 output.txt$
+-rwxr-xr-x 1 beapfalmeida 22328 Jun  8 20:41 pipex$
+-rw-r--r-- 1 beapfalmeida  1436 Jun  8 19:57 pipex.c$
+-rw-r--r-- 1 beapfalmeida  1666 Jun  8 20:41 pipex.h$
+-rw-r--r-- 1 beapfalmeida  2552 Jun  8 20:00 pipex.o$
+-rwxr-xr-x 1 beapfalmeida    17 Jun  8 19:35 test1.txt$
+-rw-r--r-- 1 beapfalmeida     9 Jun  8 20:06 test2.txt$

@@ -42,7 +42,7 @@ char	*process_path( char **path, char ***args, char *cmd, char **envp)
 		if (ft_strncmp(envp[i], "PATH", 4) == 0)
 		{
 			paths = ft_split(envp[i] + 5, ':');
-			*path = get_cmd(paths, cmd);
+			*path = get_cmd(paths, **args);
 			free_array(paths);
 			return (*path);
 		}
