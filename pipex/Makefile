@@ -27,12 +27,12 @@ $(BONUS): $(BONUS_OBJ) $(LIBFT_A) $(FT_PRINTF_A)
 	$(CC) $(CFLAGS) -o $(BONUS) $(BONUS_OBJ) $(LIBFT_A) $(FT_PRINTF_A)
 
 clean:
-	rm -f $(OBJ)
+	rm -f $(OBJ) $(BONUS_OBJ)
 	make clean -C libft
 	make clean -C ft_printf
 
 fclean: clean
-	rm -f $(NAME)
+	rm -f $(NAME) $(BONUS)
 	make fclean -C libft
 	make fclean -C ft_printf 
 
