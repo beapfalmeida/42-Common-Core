@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   handle_errors.c                                    :+:      :+:    :+:   */
+/*   _bonus_handle_errors.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bpaiva-f <bpaiva-f@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 13:14:11 by bpaiva-f          #+#    #+#             */
-/*   Updated: 2024/06/08 11:20:50 by bpaiva-f         ###   ########.fr       */
+/*   Updated: 2024/06/10 09:58:07 by bpaiva-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
+#include "_bonuspipex.h"
 
 void	badfork(int pid, char *strerr)
 {
@@ -29,6 +29,7 @@ void	badpath(char *path, char *cmd)
 		exit(1);
 	}
 }
+
 void	badopen(int input_fd, char *file)
 {
 	if (input_fd == -1)

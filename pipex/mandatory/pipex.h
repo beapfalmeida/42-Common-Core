@@ -6,7 +6,7 @@
 /*   By: bpaiva-f <bpaiva-f@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 15:19:31 by bpaiva-f          #+#    #+#             */
-/*   Updated: 2024/06/08 10:52:01 by bpaiva-f         ###   ########.fr       */
+/*   Updated: 2024/06/10 10:48:56 by bpaiva-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@
 # include <sys/wait.h>
 # include <fcntl.h>
 # include <string.h>
-# include "libft/libft.h"
-# include "ft_printf/ft_printf.h"
+# include "../libft/libft.h"
+# include "../ft_printf/ft_printf.h"
 
 char	*process_path( char **path, char ***args, char *cmd, char **envp);
 char	*get_cmd(char **paths, char *cmd);

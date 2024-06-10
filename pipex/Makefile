@@ -1,10 +1,14 @@
 CC = cc
-CFLAGS = -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra -g
 NAME = pipex
+BONUS = pipex_bonus
+DIR = mandatory
 LIBFT_A = libft/libft.a
 FT_PRINTF_A = ft_printf/ft_printf.a
-SRC = pipex.c handle_errors.c get_commands.c children.c
+SRC = mandatory/pipex.c mandatory/handle_errors.c mandatory/get_commands.c mandatory/children.c
+BONUS_SRC = bonus/_bonuspipex.c bonus/_bonus_handle_errors.c bonus/_bonus_get_commands.c bonus/_bonuschildren.c
 OBJ = $(SRC:.c=.o)
+BONUS_OBJ = $(BONUS_SRC:.c=.o)
 
 all: $(NAME)
 
@@ -16,6 +20,11 @@ $(FT_PRINTF_A):
 
 $(NAME): $(OBJ) $(LIBFT_A) $(FT_PRINTF_A)
 	$(CC) $(CFLAGS) -o $(NAME) $(OBJ) $(LIBFT_A) $(FT_PRINTF_A)
+
+bonus: $(BONUS) 
+
+$(BONUS): $(BONUS_OBJ) $(LIBFT_A) $(FT_PRINTF_A)
+	$(CC) $(CFLAGS) -o $(BONUS) $(BONUS_OBJ) $(LIBFT_A) $(FT_PRINTF_A)
 
 clean:
 	rm -f $(OBJ)

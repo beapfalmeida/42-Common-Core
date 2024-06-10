@@ -6,7 +6,7 @@
 /*   By: bpaiva-f <bpaiva-f@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 13:14:14 by bpaiva-f          #+#    #+#             */
-/*   Updated: 2024/06/08 11:09:35 by bpaiva-f         ###   ########.fr       */
+/*   Updated: 2024/06/10 09:59:39 by bpaiva-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ void	execute_first(char *path, char	**args, char **envp)
 		exit(1);
 	}
 }
+
 void	first_child(int *fd, char **envp, char *file, char *cmd)
 {
 	char	*path;
@@ -36,7 +37,6 @@ void	first_child(int *fd, char **envp, char *file, char *cmd)
 	dup2(fd[1], STDOUT_FILENO);
 	close(fd[0]);
 	execute_first(path, args, envp);
-	//free_data(path, args);
 }
 
 void	second_child(int *fd, char **envp, char *file, char *cmd)

@@ -1,6 +1,6 @@
 {
 	"files.associations": {
-		"pipex.h": "c",
-		"unistd.h": "c"
+		"_bonusmultiargs": "c",
+		"_bonuspipex.h": "c"
 	}
 }
