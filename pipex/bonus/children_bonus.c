@@ -6,7 +6,7 @@
 /*   By: bpaiva-f <bpaiva-f@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 13:14:14 by bpaiva-f          #+#    #+#             */
-/*   Updated: 2024/06/13 17:39:17 by bpaiva-f         ###   ########.fr       */
+/*   Updated: 2024/06/13 21:53:36 by bpaiva-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,16 +45,16 @@ void	middle_child(int *fd, int *fd2, char **envp, char *cmd)
 	char	**args;
 	//int		pid;
 
-	//forking(&pid);
-	//if (pid == 0)
-	//{
+	// forking(&pid);
+	// if (pid == 0)
+	// {
 		process_path(&path, &args, cmd, envp);
 		badpath(path, cmd);
 		dup2(fd2[1], STDOUT_FILENO);
 		close(fd[1]);
 		close(fd2[0]);
 		execute_first(path, args, envp);
-	//}
+	// }
 }
 
 void	last_child(int *fd, char **envp, char *file, char *cmd)

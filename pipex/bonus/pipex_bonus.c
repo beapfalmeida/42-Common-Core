@@ -6,7 +6,7 @@
 /*   By: bpaiva-f <bpaiva-f@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 13:14:07 by bpaiva-f          #+#    #+#             */
-/*   Updated: 2024/06/13 17:55:34 by bpaiva-f         ###   ########.fr       */
+/*   Updated: 2024/06/13 20:26:57 by bpaiva-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,30 +50,27 @@ void	multiargs(int argc, char **argv, char **envp, int *fd)
 void	process_lim(char **argv, char **envp, int *fd, char *file)
 {
 	int		fd2[2];
-	char	*line;
 	int		pid;
-
-	pipe(fd);
-	forking(&pid);
-	if (pid == 0)
+	char	*str;
+	
+	pid = pipe(fd);
+	while (1)
 	{
-		line = get_next_line(0);
-		while (line != NULL && ft_strnstr(line, argv[2], ft_strlen(line)) == NULL)
-		{
-			write(fd[1], line, ft_strlen(line));
-			free(line);
-			line = get_next_line(0);
-		}
-		close(fd[1]);
+		str = get_next_line(0);
+		write(fd[0], str, ft_strlen(str));
+		if(!strcmp(str, argv[2]))
+			break;
 	}
-	wait(NULL);
-	if (pipe(fd2) == -1)
-		badpipe(strerror(errno));
+	forking(&pid);
 	dup2(fd[0], STDIN_FILENO);
-	middle_child(fd, fd2, envp, argv[3]);
-	dup2(fd2[0], STDIN_FILENO);
+	if (pid == 0)
+		middle_child(fd, fd2, envp, argv[3]);
+	else
+	{
+		dup2(fd2[0], STDIN_FILENO);
+		waitpid(pid, NULL, 0);
+	}
 	last_child(fd2, envp, file, argv[4]);
-	waitpid(0, NULL, 0);
 	close(fd2[0]);
 	close(fd2[1]);
 }
@@ -105,6 +102,6 @@ int	main(int argc, char **argv, char **envp)
 		multiargs(argc, argv, envp, fd);
 	}
 	close(fd[0]);
-	close (fd[1]);	
+	close (fd[1]);
 	return (0);
 }
