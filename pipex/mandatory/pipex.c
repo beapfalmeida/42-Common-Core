@@ -6,7 +6,7 @@
 /*   By: bpaiva-f <bpaiva-f@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 13:14:07 by bpaiva-f          #+#    #+#             */
-/*   Updated: 2024/06/10 09:38:10 by bpaiva-f         ###   ########.fr       */
+/*   Updated: 2024/06/13 16:13:14 by bpaiva-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	main(int argc, char **argv, char **envp)
 	status = 0;
 	if (argc != 5)
 	{
-		ft_printf("Usage: %s <file1> <cmd1> <cmd2> <file2>\n", argv[0]);
+		ft_printf("Usage: %s <infile> <cmd1> <cmd2> <outfile>\n", argv[0]);
 		return (1);
 	}
 	if (pipe(fd) == -1)

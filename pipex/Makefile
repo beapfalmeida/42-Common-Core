@@ -6,7 +6,7 @@ DIR = mandatory
 LIBFT_A = libft/libft.a
 FT_PRINTF_A = ft_printf/ft_printf.a
 SRC = mandatory/pipex.c mandatory/handle_errors.c mandatory/get_commands.c mandatory/children.c
-BONUS_SRC = bonus/_bonuspipex.c bonus/_bonus_handle_errors.c bonus/_bonus_get_commands.c bonus/_bonuschildren.c
+BONUS_SRC = bonus/pipex_bonus.c bonus/handle_errors_bonus.c bonus/get_commands_bonus.c bonus/children_bonus.c
 OBJ = $(SRC:.c=.o)
 BONUS_OBJ = $(BONUS_SRC:.c=.o)
 

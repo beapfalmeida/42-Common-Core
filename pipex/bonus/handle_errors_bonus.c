@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   _bonus_handle_errors.c                             :+:      :+:    :+:   */
+/*   handle_errors_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bpaiva-f <bpaiva-f@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 13:14:11 by bpaiva-f          #+#    #+#             */
-/*   Updated: 2024/06/10 09:58:07 by bpaiva-f         ###   ########.fr       */
+/*   Updated: 2024/06/13 15:15:19 by bpaiva-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "_bonuspipex.h"
+#include "pipex_bonus.h"
 
 void	badfork(int pid, char *strerr)
 {
@@ -19,6 +19,12 @@ void	badfork(int pid, char *strerr)
 		perror(strerr);
 		exit(1);
 	}
+}
+
+void	badpipe(char *strerr)
+{
+	perror(strerr);
+	exit(1);
 }
 
 void	badpath(char *path, char *cmd)
@@ -37,19 +43,6 @@ void	badopen(int input_fd, char *file)
 		ft_printf("zsh: no such file or directory: %s\n", file);
 		exit(1);
 	}
-}
-
-void	free_array(char **arr)
-{
-	int	i;
-
-	i = 0;
-	while (arr[i] != NULL)
-	{
-		free(arr[i]);
-		i++;
-	}
-	free(arr);
 }
 
 void	free_data(char *path, char **args)

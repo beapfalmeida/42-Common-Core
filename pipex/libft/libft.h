@@ -6,7 +6,7 @@
 /*   By: bpaiva-f <bpaiva-f@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 11:48:20 by bpaiva-f          #+#    #+#             */
-/*   Updated: 2024/06/06 14:21:34 by bpaiva-f         ###   ########.fr       */
+/*   Updated: 2024/06/13 16:04:35 by bpaiva-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <stddef.h>
+# include "get_next_line/get_next_line.h"
 
 typedef struct s_list
 {
@@ -47,7 +48,7 @@ int		ft_atoi(const char *str);
 void	*ft_calloc(size_t n, size_t size);
 char	*ft_strdup(char *src);
 char	*ft_substr(char const *str, unsigned int st, size_t n);
-char	*ft_strjoin(char const *s1, char const *s2);
+char	*ft_strjoin(char *s1, char *s2);
 char	*ft_strtrim(char const *s, char const *set);
 char	*ft_itoa(int n);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));

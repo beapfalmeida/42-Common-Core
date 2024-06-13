@@ -1,16 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   _bonus_get_commands.c                              :+:      :+:    :+:   */
+/*   get_commands_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bpaiva-f <bpaiva-f@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 15:17:51 by bpaiva-f          #+#    #+#             */
-/*   Updated: 2024/06/10 09:58:19 by bpaiva-f         ###   ########.fr       */
+/*   Updated: 2024/06/13 15:15:11 by bpaiva-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "_bonuspipex.h"
+#include "pipex_bonus.h"
+
+void	free_array(char **arr)
+{
+	int	i;
+
+	i = 0;
+	while (arr[i] != NULL)
+	{
+		free(arr[i]);
+		i++;
+	}
+	free(arr);
+}
 
 char	*get_cmd(char **paths, char *cmd)
 {
