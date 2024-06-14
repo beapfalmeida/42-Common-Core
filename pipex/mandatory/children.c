@@ -6,13 +6,13 @@
 /*   By: bpaiva-f <bpaiva-f@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 13:14:14 by bpaiva-f          #+#    #+#             */
-/*   Updated: 2024/06/13 15:28:59 by bpaiva-f         ###   ########.fr       */
+/*   Updated: 2024/06/14 09:59:16 by bpaiva-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-void	execute_first(char *path, char	**args, char **envp)
+void	execute(char *path, char	**args, char **envp)
 {
 	if (execve(path, args, envp) == -1)
 	{
@@ -36,7 +36,7 @@ void	first_child(int *fd, char **envp, char *file, char *cmd)
 	dup2(input_fd, STDIN_FILENO);
 	dup2(fd[1], STDOUT_FILENO);
 	close(fd[0]);
-	execute_first(path, args, envp);
+	execute(path, args, envp);
 }
 
 void	second_child(int *fd, char **envp, char *file, char *cmd)
@@ -57,12 +57,7 @@ void	second_child(int *fd, char **envp, char *file, char *cmd)
 		close(fd[1]);
 		dup2(fd[0], STDIN_FILENO);
 		dup2(output_fd, STDOUT_FILENO);
-		if (execve(path, args, envp) == -1)
-		{
-			perror(strerror(errno));
-			free_data(path, args);
-			exit(1);
-		}
+		execute(path, args, envp);
 	}
 	close(output_fd);
 	free_data(path, args);

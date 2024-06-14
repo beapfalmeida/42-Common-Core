@@ -6,11 +6,17 @@
 /*   By: bpaiva-f <bpaiva-f@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 15:17:51 by bpaiva-f          #+#    #+#             */
-/*   Updated: 2024/06/13 15:15:11 by bpaiva-f         ###   ########.fr       */
+/*   Updated: 2024/06/14 10:12:18 by bpaiva-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex_bonus.h"
+
+void	free_data(char *path, char **args)
+{
+	free(path);
+	free_array(args);
+}
 
 void	free_array(char **arr)
 {

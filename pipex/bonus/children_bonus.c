@@ -6,13 +6,13 @@
 /*   By: bpaiva-f <bpaiva-f@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 13:14:14 by bpaiva-f          #+#    #+#             */
-/*   Updated: 2024/06/13 21:53:36 by bpaiva-f         ###   ########.fr       */
+/*   Updated: 2024/06/14 10:34:20 by bpaiva-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex_bonus.h"
 
-void	execute_first(char *path, char	**args, char **envp)
+void	execute(char *path, char	**args, char **envp)
 {
 	if (execve(path, args, envp) == -1)
 	{
@@ -36,25 +36,19 @@ void	first_child(int *fd, char **envp, char *file, char *cmd)
 	dup2(input_fd, STDIN_FILENO);
 	dup2(fd[1], STDOUT_FILENO);
 	close(fd[0]);
-	execute_first(path, args, envp);
+	execute(path, args, envp);
 }
 
 void	middle_child(int *fd, int *fd2, char **envp, char *cmd)
 {
 	char	*path;
 	char	**args;
-	//int		pid;
-
-	// forking(&pid);
-	// if (pid == 0)
-	// {
-		process_path(&path, &args, cmd, envp);
-		badpath(path, cmd);
-		dup2(fd2[1], STDOUT_FILENO);
-		close(fd[1]);
-		close(fd2[0]);
-		execute_first(path, args, envp);
-	// }
+	process_path(&path, &args, cmd, envp);
+	badpath(path, cmd);
+	dup2(fd2[1], STDOUT_FILENO);
+	close(fd[1]);
+	close(fd2[0]);
+	execute(path, args, envp);
 }
 
 void	last_child(int *fd, char **envp, char *file, char *cmd)
@@ -74,12 +68,7 @@ void	last_child(int *fd, char **envp, char *file, char *cmd)
 		badpath(path, cmd);
 		close(fd[1]);
 		dup2(output_fd, STDOUT_FILENO);
-		if (execve(path, args, envp) == -1)
-		{
-			perror(strerror(errno));
-			free_data(path, args);
-			exit(1);
-		}
+		execute(path, args, envp);
 	}
 	close(output_fd);
 	free_data(path, args);

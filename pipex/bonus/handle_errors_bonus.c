@@ -6,7 +6,7 @@
 /*   By: bpaiva-f <bpaiva-f@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 13:14:11 by bpaiva-f          #+#    #+#             */
-/*   Updated: 2024/06/13 15:15:19 by bpaiva-f         ###   ########.fr       */
+/*   Updated: 2024/06/14 10:36:03 by bpaiva-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,9 @@ void	badopen(int input_fd, char *file)
 	}
 }
 
-void	free_data(char *path, char **args)
+void	badargs(char *exec)
 {
-	free(path);
-	free_array(args);
+	ft_printf("Please provide arguments of one of this forms:\n%s <infile> <cmd> ... <cmd> <outfile>\n", exec);
+	ft_printf("%s here_doc LIMITER <cmd> <cmd1> <outfile>\n", exec);
+	exit(1);
 }

@@ -6,7 +6,7 @@
 /*   By: bpaiva-f <bpaiva-f@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 15:19:31 by bpaiva-f          #+#    #+#             */
-/*   Updated: 2024/06/10 10:48:56 by bpaiva-f         ###   ########.fr       */
+/*   Updated: 2024/06/14 09:59:44 by bpaiva-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	badpath(char *path, char *cmd);
 void	badopen(int input_fd, char *file);
 void	free_array(char **arr);
 void	free_data(char *path, char **args);
-void	execute_first(char *path, char	**args, char **envp);
+void	execute(char *path, char	**args, char **envp);
 void	first_child(int *fd, char **envp, char *file, char *cmd);
 void	second_child(int *fd, char **envp, char *file, char *cmd);
 
