@@ -6,7 +6,7 @@
 /*   By: bpaiva-f <bpaiva-f@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 13:14:07 by bpaiva-f          #+#    #+#             */
-/*   Updated: 2024/06/14 12:28:44 by bpaiva-f         ###   ########.fr       */
+/*   Updated: 2024/06/14 17:22:03 by bpaiva-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ void	forking(int *pid)
 	if (*pid == 0)
 		badfork(*pid, strerror(errno));
 }
+
 void	keep_processing(int argc, char **argv, char **envp, int *fd)
 {
 	int	i;
@@ -42,9 +43,11 @@ void	keep_processing(int argc, char **argv, char **envp, int *fd)
 	}
 	last_child(fd, envp, argv[argc - 1], argv[argc - 2]);
 }
+
 void	process_children(int argc, char **argv, char **envp, int *fd)
 {
-	int pid;
+	int	pid;
+
 	forking(&pid);
 	if (pid == 0)
 		first_child(fd, envp, argv[1], argv[2]);
@@ -56,6 +59,7 @@ void	process_children(int argc, char **argv, char **envp, int *fd)
 	}
 	keep_processing(argc, argv, envp, fd);
 }
+
 void	get_input_process(int argc, char **argv, char **envp, int *fd)
 {
 	char	*str;
@@ -68,8 +72,8 @@ void	get_input_process(int argc, char **argv, char **envp, int *fd)
 	{
 		str = get_next_line(0);
 		write(fd[1], str, ft_strlen(str));
-		if(!ft_strncmp(str, limiter, ft_strlen(str)))
-			break;
+		if (!ft_strncmp(str, limiter, ft_strlen(str)))
+			break ;
 		free(str);
 	}
 	free(str);

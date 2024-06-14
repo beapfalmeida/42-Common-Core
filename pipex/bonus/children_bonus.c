@@ -6,7 +6,7 @@
 /*   By: bpaiva-f <bpaiva-f@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 13:14:14 by bpaiva-f          #+#    #+#             */
-/*   Updated: 2024/06/14 10:34:20 by bpaiva-f         ###   ########.fr       */
+/*   Updated: 2024/06/14 17:22:23 by bpaiva-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ void	middle_child(int *fd, int *fd2, char **envp, char *cmd)
 {
 	char	*path;
 	char	**args;
+
 	process_path(&path, &args, cmd, envp);
 	badpath(path, cmd);
 	dup2(fd2[1], STDOUT_FILENO);

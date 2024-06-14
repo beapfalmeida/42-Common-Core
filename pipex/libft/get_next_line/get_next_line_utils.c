@@ -6,13 +6,13 @@
 /*   By: bpaiva-f <bpaiva-f@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 18:32:41 by bpaiva-f          #+#    #+#             */
-/*   Updated: 2024/06/13 16:01:30 by bpaiva-f         ###   ########.fr       */
+/*   Updated: 2024/06/14 17:35:41 by bpaiva-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-int	ft_strclen(char *str, char c)
+int	ft_strclen_gnl(char *str, char c)
 {
 	int	i;
 
@@ -24,7 +24,7 @@ int	ft_strclen(char *str, char c)
 	return (i);
 }
 
-char	*ft_strdupp(char *src, int size)
+char	*ft_strdup_gnl(char *src, int size)
 {
 	char	*new;
 	int		i;
@@ -44,7 +44,7 @@ char	*ft_strdupp(char *src, int size)
 	return (new);
 }
 
-char	*ft_strjoinn(char *s1, char *s2)
+char	*ft_strjoin_gnl(char *s1, char *s2)
 {
 	char	*new;
 	size_t	tlen;
@@ -73,7 +73,7 @@ char	*ft_strjoinn(char *s1, char *s2)
 	return (new);
 }
 
-char	*ft_strchrr(const char *s, int c)
+char	*ft_strchr_gnl(const char *s, int c)
 {
 	unsigned int	i;
 

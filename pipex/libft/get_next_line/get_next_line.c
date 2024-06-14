@@ -6,13 +6,13 @@
 /*   By: bpaiva-f <bpaiva-f@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 18:33:00 by bpaiva-f          #+#    #+#             */
-/*   Updated: 2024/06/13 17:34:34 by bpaiva-f         ###   ########.fr       */
+/*   Updated: 2024/06/14 17:35:46 by bpaiva-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-char	*free_dataa(char *stash, char *buffer)
+char	*free_data_gnl(char *stash, char *buffer)
 {
 	free(stash);
 	free(buffer);
