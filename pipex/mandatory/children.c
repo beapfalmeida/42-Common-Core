@@ -6,7 +6,7 @@
 /*   By: bpaiva-f <bpaiva-f@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 13:14:14 by bpaiva-f          #+#    #+#             */
-/*   Updated: 2024/06/14 12:51:54 by bpaiva-f         ###   ########.fr       */
+/*   Updated: 2024/06/16 10:50:54 by bpaiva-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ void	second_child(int *fd, char **envp, char *file, char *cmd)
 	if (pid == 0)
 		badfork(pid, strerror(errno));
 	output_fd = open(file, O_WRONLY | O_CREAT | O_TRUNC, 0644);
+	badopen(output_fd, file);
 	process_path(&path, &args, cmd, envp);
 	if (pid == 0)
 	{

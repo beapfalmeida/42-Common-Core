@@ -6,7 +6,7 @@
 /*   By: bpaiva-f <bpaiva-f@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 13:14:11 by bpaiva-f          #+#    #+#             */
-/*   Updated: 2024/06/14 17:22:52 by bpaiva-f         ###   ########.fr       */
+/*   Updated: 2024/06/17 15:41:23 by bpaiva-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,9 @@ void	badpath(char *path, char *cmd)
 	}
 }
 
-void	badopen(int input_fd, char *file)
+void	badopen(int fd, char *file)
 {
-	if (input_fd == -1)
+	if (fd == -1)
 	{
 		ft_printf("zsh: no such file or directory: %s\n", file);
 		exit(1);

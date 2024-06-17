@@ -6,7 +6,7 @@
 /*   By: bpaiva-f <bpaiva-f@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 15:17:51 by bpaiva-f          #+#    #+#             */
-/*   Updated: 2024/06/14 10:12:18 by bpaiva-f         ###   ########.fr       */
+/*   Updated: 2024/06/17 15:49:23 by bpaiva-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,10 @@ void	free_array(char **arr)
 	free(arr);
 }
 
+/// @brief checks if our command is in any of the paths
+/// @param paths 
+/// @param cmd 
+/// @return the full path
 char	*get_cmd(char **paths, char *cmd)
 {
 	char	*temp;
@@ -48,7 +52,12 @@ char	*get_cmd(char **paths, char *cmd)
 	}
 	return (NULL);
 }
-
+/// @brief Looks through the environment variables and splits the command possible paths into an array
+/// @param path the path - ex usr/bin/grep
+/// @param args is what we provide as argv[1], such as "grep a"
+/// @param cmd our command, such as grep or ls
+/// @param envp the environment variables
+/// @return is the path variable
 char	*process_path( char **path, char ***args, char *cmd, char **envp)
 {
 	char	**paths;
