@@ -6,7 +6,7 @@
 /*   By: bpaiva-f <bpaiva-f@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 13:14:07 by bpaiva-f          #+#    #+#             */
-/*   Updated: 2024/06/17 15:50:07 by bpaiva-f         ###   ########.fr       */
+/*   Updated: 2024/06/19 10:17:29 by bpaiva-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	init_struct(s_main *st, int argc, char **argv, char **envp)
 	st->env = envp;
 }
 
-void	forking(s_main *st, int *pid)
+void	forking(int *pid)
 {
 	*pid = fork();
 	if (*pid == 0)
@@ -37,7 +37,7 @@ void	keep_processing(s_main *st, int *fd, int type)
 	{
 		if (pipe(fd2) == -1)
 			badpipe(strerror(errno));
-		forking(st, &pid);
+		forking(&pid);
 		if (pid == 0)
 			middle_child(st, fd, fd2, st->av[i]);
 		i++;
@@ -56,7 +56,7 @@ void	process_children(s_main *st, int *fd)
 	int	pid;
 	int	status;
 
-	forking(st, &pid);
+	forking(&pid);
 	if (pid == 0)
 		first_child(st, fd);
 	else

@@ -6,7 +6,7 @@
 /*   By: bpaiva-f <bpaiva-f@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 15:19:31 by bpaiva-f          #+#    #+#             */
-/*   Updated: 2024/06/16 10:29:00 by bpaiva-f         ###   ########.fr       */
+/*   Updated: 2024/06/19 10:06:20 by bpaiva-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 # include <fcntl.h>
 # include <string.h>
 # include "../libft/libft.h"
-# include "../ft_printf/ft_printf.h"
+# include "../libft/ft_printf/ft_printf.h"
 
 char	*process_path( char **path, char ***args, char *cmd, char **envp);
 char	*get_cmd(char **paths, char *cmd);

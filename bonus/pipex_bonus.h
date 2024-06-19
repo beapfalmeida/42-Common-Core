@@ -6,7 +6,7 @@
 /*   By: bpaiva-f <bpaiva-f@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 15:19:31 by bpaiva-f          #+#    #+#             */
-/*   Updated: 2024/06/17 15:49:50 by bpaiva-f         ###   ########.fr       */
+/*   Updated: 2024/06/19 10:14:42 by bpaiva-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 # include <fcntl.h>
 # include <string.h>
 # include "../libft/libft.h"
-# include "../ft_printf/ft_printf.h"
+# include "../libft/ft_printf/ft_printf.h"
 
 typedef struct main
 {
@@ -42,7 +42,7 @@ void	badopen(int fd, char *file);
 void	badpipe(char *strerr);
 void	badargs(char *exec);
 
-void	forking(s_main *st, int *pid);
+void	forking(int *pid);
 int		open_file(int type, char *file);
 void	execute(char *path, char	**args, char **envp);
 void	init_struct(s_main *st, int argc, char **argv, char **envp);
