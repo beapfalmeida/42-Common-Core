@@ -20,7 +20,7 @@ libft:
 	fi
 
 $(LIBFT_A): libft
-	$(MAKE) -C $(LIBFT_DIR) bonus
+	$(MAKE) -C $(LIBFT_DIR)
 
 $(FT_PRINTF_A): libft
 	$(MAKE) -C $(FT_PRINTF_DIR)
@@ -35,14 +35,17 @@ $(BONUS): $(BONUS_OBJ) $(LIBFT_A) $(FT_PRINTF_A)
 
 clean:
 	rm -f $(OBJ) $(BONUS_OBJ)
-	$(MAKE) -C $(LIBFT_DIR) clean
-	$(MAKE) -C $(FT_PRINTF_DIR) clean
+	@if [ -d "$(LIBFT_DIR)" ]; then \
+	$(MAKE) -C $(LIBFT_DIR) clean \
+	$(MAKE) -C $(FT_PRINTF_DIR) clean; \
+	fi
 
-## adicionar ifs para se nao existir libft dar para deletar o executavel e object files
 fclean: clean
 	rm -f $(NAME) $(BONUS)
-	$(MAKE) -C $(LIBFT_DIR) fclean
-	$(MAKE) -C $(FT_PRINTF_DIR) fclean
+	@if [ -d "$(LIBFT_DIR)" ]; then \
+	$(MAKE) -C $(LIBFT_DIR) fclean \
+	$(MAKE) -C $(FT_PRINTF_DIR) fclean; \
+	fi
 
 libclean:
 	rm -rf 	$(LIBFT_DIR)
