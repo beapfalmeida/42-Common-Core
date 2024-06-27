@@ -6,7 +6,7 @@
 /*   By: bpaiva-f <bpaiva-f@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 13:14:07 by bpaiva-f          #+#    #+#             */
-/*   Updated: 2024/06/17 10:22:40 by bpaiva-f         ###   ########.fr       */
+/*   Updated: 2024/06/27 12:24:45 by bpaiva-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,9 @@ int	main(int argc, char **argv, char **envp)
 	badfork(pid, strerror(errno));
 	if (pid == 0)
 		first_child(fd, envp, argv[1], argv[2]);
-	waitpid(pid, &status, 0);
-	second_child(fd, envp, argv[4], argv[3]);
 	close(fd[0]);
 	close (fd[1]);
+	waitpid(pid, &status, 0);
+	second_child(fd, envp, argv[4], argv[3]);
 	return (0);
 }
