@@ -6,7 +6,7 @@
 /*   By: bpaiva-f <bpaiva-f@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 13:14:14 by bpaiva-f          #+#    #+#             */
-/*   Updated: 2024/06/19 10:18:56 by bpaiva-f         ###   ########.fr       */
+/*   Updated: 2024/06/27 13:05:50 by bpaiva-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	open_file(int type, char *file)
 	if (type == 0)
 		output_fd = open(file, O_WRONLY | O_CREAT | O_TRUNC, 0644);
 	else
-		output_fd = open(file, O_WRONLY | O_CREAT, 0644);
+		output_fd = open(file, O_WRONLY | O_CREAT | O_APPEND, 0644);
 	return (output_fd);
 }
 

@@ -6,7 +6,7 @@
 /*   By: bpaiva-f <bpaiva-f@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 13:14:07 by bpaiva-f          #+#    #+#             */
-/*   Updated: 2024/06/19 10:17:29 by bpaiva-f         ###   ########.fr       */
+/*   Updated: 2024/06/27 13:01:19 by bpaiva-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,9 +46,11 @@ void	keep_processing(s_main *st, int *fd, int type)
 		dup2(fd[0], STDIN_FILENO);
 		close(fd2[0]);
 		close(fd2[1]);
-		waitpid(pid, NULL, 0);
 	}
 	last_child(st, fd, type);
+	close(fd[1]);
+	close(fd[0]);
+	waitpid(pid, NULL, 0);
 }
 
 void	process_children(s_main *st, int *fd)
@@ -61,12 +63,12 @@ void	process_children(s_main *st, int *fd)
 		first_child(st, fd);
 	else
 	{
+		close(fd[1]);
 		dup2(fd[0], STDIN_FILENO);
-		if (st->ac > 5)
-			close(fd[1]);
+		close(fd[0]);
 		waitpid(pid, &status, 0);
 	}
-	keep_processing(st, fd, 1);
+	keep_processing(st, fd, 0);
 }
 
 void	get_input_process(s_main *st, int *fd)
@@ -88,7 +90,7 @@ void	get_input_process(s_main *st, int *fd)
 	free(str);
 	dup2(fd[0], STDIN_FILENO);
 	close(fd[1]);
-	keep_processing(st, fd, 0);
+	keep_processing(st, fd, 1);
 }
 
 int	main(int argc, char **argv, char **envp)
